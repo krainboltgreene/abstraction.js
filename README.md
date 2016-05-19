@@ -48,5 +48,5 @@ Since we always return common Javascript types it is [easy to use with other lib
 
 You can also use some of the extra modules for extended functionality:
 
-  - [Validations][/example/extended/validations.js]
-  - [Schemas][/example/extended/schema.js]
+  - [Validations](/example/extended/validations.js)
+  - [Schemas](/example/extended/schema.js)
