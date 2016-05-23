@@ -13,21 +13,21 @@ Object.defineProperty(exports, "abstract", {
   }
 });
 
-var _isPersisted = require("./isPersisted");
-
-Object.defineProperty(exports, "isPersisted", {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_isPersisted)["default"];
-  }
-});
-
 var _isNewRecord = require("./isNewRecord");
 
 Object.defineProperty(exports, "isNewRecord", {
   enumerable: true,
   get: function get() {
     return _interopRequireDefault(_isNewRecord)["default"];
+  }
+});
+
+var _isPersisted = require("./isPersisted");
+
+Object.defineProperty(exports, "isPersisted", {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_isPersisted)["default"];
   }
 });
 

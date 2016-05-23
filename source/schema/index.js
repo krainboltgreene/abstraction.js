@@ -1,2 +1,6 @@
+export {default as boolean} from "./boolean"
+export {default as date} from "./date"
+export {default as json} from "./json"
+export {default as number} from "./number"
 export {default as text} from "./text"
 export {default as timestamp} from "./timestamp"

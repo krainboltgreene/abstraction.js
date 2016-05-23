@@ -10,10 +10,10 @@ describe("abstract()", () => {
   const definition = {
     name: "accounts",
     schema: {
-      name: text,
-      email: text,
-      createdAt: timestamp,
-      updatedAt: timestamp
+      name: text(),
+      email: text(),
+      createdAt: timestamp(),
+      updatedAt: timestamp()
     }
   }
 
