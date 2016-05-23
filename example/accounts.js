@@ -15,17 +15,14 @@ export default abstract({
   schema: {
     name: text({nullAllowed: false}),
     email: text({nullAllowed: false}),
-    createdAt: timestamp({defaultTo: moment})
+    createdAt: timestamp({defaultTo: moment}),
+    updatedAt: timestamp({defaultTo: moment})
   },
   validations: {
     name: validation(({name}) => name.length >= MINIMUM_NAME_LENGTH)
   },
   scopes: {
-    nameMatches: (partial) => {
-      return {
-        where: ["name", "like", partial]
-      }
-    }
+    nameMatches: (partial) => ({where: ["name", "like", partial]})
   },
   relationships: {
     posts: ({id}) => hasMany({
