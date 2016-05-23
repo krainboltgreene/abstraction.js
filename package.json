@@ -7,8 +7,11 @@
     "build": "rm -rf './transpiled/' && mkdir './transpiled/' && babel './source/**/index.js' -d './transpiled/'",
     "test": "mocha --compilers js:babel-register './source/**/test.js'",
     "start": "npm-run-all --parallel watch:build watch:test",
+    "lint": "eslint './source/'",
+    "watch": "npm-run-all --parallel watch:test watch:lint watch:build",
     "watch:build": "chokidar './source/' --initial --command 'npm run build --silent'",
-    "watch:test": "chokidar './source/' --initial --command 'npm run test --silent'"
+    "watch:test": "chokidar './source/' --initial --command 'npm run test --silent'",
+    "watch:lint": "chokidar './source/' --initial --command 'npm run lint --silent'"
   },
   "repository": {
     "type": "git",
@@ -64,15 +67,16 @@
     "eslint-plugin-node": "^1",
     "greenkeeper": "^2",
     "mocha": "^2",
+    "moment": "^2.13.0",
     "npm": "^3",
     "npm-run-all": "^2"
   },
   "peerDependency": {
-    "pg": "^4"
+    "pg": "^4",
+    "moment": "^2"
   },
   "dependencies": {
     "bunyan": "^1",
-    "immu": "^2",
     "knex": "0.10.0",
     "ramda": "0.21.0"
   }

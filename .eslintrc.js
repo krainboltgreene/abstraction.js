@@ -242,7 +242,8 @@ module.exports = {
     "babel/object-shorthand": "error",
     "immutable/no-let": "error",
     "immutable/no-mutation": "error",
-    "immutable/no-this": "error",
+    // Only makes sense with react components
+    // "immutable/no-this": "error",
     // Doesn't actually work yet
     // "import/default": "error",
     "import/export": "error",

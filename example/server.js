@@ -1,4 +1,4 @@
-import {model} from "~/application/account"
+import {query} from "~/application/account/model"
 import {serializer} from "~/application/account"
 
 export default (server) => {
@@ -8,7 +8,7 @@ export default (server) => {
     handler (request, reply) {
       // NOTE: Here you see we're getting all account models
       return reply(
-        serializer(model())
+        serializer(query())
       )
     }
   })
@@ -24,10 +24,10 @@ export default (server) => {
     handler (request, reply) {
       // NOTE: We can use knex.js's querying directly in this function
       return reply(
-        model({
-          where: {active: request.query.filter.active},
-          orderBy: "createdAt"
-        })
+        query([
+          {where: {active: request.query.filter.active}},
+          {orderBy: "createdAt"}
+        ])
       )
     }
   })
@@ -43,12 +43,14 @@ export default (server) => {
     handler (request, reply) {
       // NOTE: We an even use functions defined on the model, each one adding to the last
       return reply(
-        model({
-          scopes: [
-            {nameLike: request.query.search.name},
-            "activated"
-          ]
-        })
+        query([
+          {
+            scopes: [
+              {nameLike: request.query.search.name},
+              "activated"
+            ]
+          }
+        ])
       )
     }
   })

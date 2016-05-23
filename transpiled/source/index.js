@@ -3,32 +3,68 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.through = exports.hasOne = exports.hasMany = exports.belongsTo = exports.abstract = undefined;
 
 var _abstract = require("./abstract");
 
-var _abstract2 = _interopRequireDefault(_abstract);
+Object.defineProperty(exports, "abstract", {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_abstract)["default"];
+  }
+});
 
 var _belongsTo = require("./belongsTo");
 
-var _belongsTo2 = _interopRequireDefault(_belongsTo);
+Object.defineProperty(exports, "belongsTo", {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_belongsTo)["default"];
+  }
+});
 
 var _hasMany = require("./hasMany");
 
-var _hasMany2 = _interopRequireDefault(_hasMany);
+Object.defineProperty(exports, "hasMany", {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_hasMany)["default"];
+  }
+});
 
 var _hasOne = require("./hasOne");
 
-var _hasOne2 = _interopRequireDefault(_hasOne);
+Object.defineProperty(exports, "hasOne", {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_hasOne)["default"];
+  }
+});
 
 var _through = require("./through");
 
-var _through2 = _interopRequireDefault(_through);
+Object.defineProperty(exports, "through", {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_through)["default"];
+  }
+});
+
+var _isPersisted = require("./isPersisted");
+
+Object.defineProperty(exports, "isPersisted", {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_isPersisted)["default"];
+  }
+});
+
+var _isNewRecord = require("./isNewRecord");
+
+Object.defineProperty(exports, "isNewRecord", {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_isNewRecord)["default"];
+  }
+});
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-exports.abstract = _abstract2["default"];
-exports.belongsTo = _belongsTo2["default"];
-exports.hasMany = _hasMany2["default"];
-exports.hasOne = _hasOne2["default"];
-exports.through = _through2["default"];
