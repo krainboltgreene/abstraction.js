@@ -13,42 +13,6 @@ Object.defineProperty(exports, "abstract", {
   }
 });
 
-var _belongsTo = require("./belongsTo");
-
-Object.defineProperty(exports, "belongsTo", {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_belongsTo)["default"];
-  }
-});
-
-var _hasMany = require("./hasMany");
-
-Object.defineProperty(exports, "hasMany", {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_hasMany)["default"];
-  }
-});
-
-var _hasOne = require("./hasOne");
-
-Object.defineProperty(exports, "hasOne", {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_hasOne)["default"];
-  }
-});
-
-var _through = require("./through");
-
-Object.defineProperty(exports, "through", {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_through)["default"];
-  }
-});
-
 var _isPersisted = require("./isPersisted");
 
 Object.defineProperty(exports, "isPersisted", {

@@ -10,6 +10,25 @@ A way of modeling your business logic in a compact and compose-able way.
 
 ## using
 
+Here's a simple abstraction:
+
+``` javascript
+import {abstract} from "abstraction"
+import {text} from "abstraction"
+import {timestamp} from "abstraction"
+import moment from "moment"
+
+export default abstract({
+  name: "accounts",
+  schema: {
+    name: text,
+    email: text,
+    createdAt: timestamp,
+    updatedAt: timestamp
+  }
+})
+```
+
 Here's a complex model (coercion + validation + scopes + queries + relationships):
 
 ``` javascript
@@ -56,13 +75,13 @@ export default abstract({
 Here's an example of modeling the attributes:
 
 ``` javascript
-import {build} from "~/application/accounts/model"
+import {model} from "~/application/accounts"
 
 const attributes = {
   name: "Kurtis Rainbolt-Greene",
   email: "me@kurtisrainboltgreene.name"
 }
-console.log(build(attributes))
+console.log(model(attributes))
 // {
 //   name: "Kurtis Rainbolt-Greene",
 //   email: "me@kurtisrainboltgreene.name",
@@ -74,27 +93,27 @@ console.log(build(attributes))
 Here's validation:
 
 ``` javascript
-import {build} from "~/application/accounts/model"
+import {model} from "~/application/accounts"
 
 const attributes = {
   name: null,
   email: null
 }
-console.log(build(attributes))
+console.log(model(attributes))
 // Error: name can't be null
 ```
 
 Here's coercion:
 
 ``` javascript
-import {build} from "~/application/accounts/model"
+import {model} from "~/application/accounts"
 
 const attributes = {
   name: "Kurtis Rainbolt-Greene",
   email: "me@kurtisrainboltgreene.name",
   createdAt: "2016/01/01"
 }
-console.log(build(attributes))
+console.log(model(attributes))
 // {
 //   name: "Kurtis Rainbolt-Greene",
 //   email: "me@kurtisrainboltgreene.name",

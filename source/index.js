@@ -1,7 +1,3 @@
 export {default as abstract} from "./abstract"
-export {default as belongsTo} from "./belongsTo"
-export {default as hasMany} from "./hasMany"
-export {default as hasOne} from "./hasOne"
-export {default as through} from "./through"
 export {default as isPersisted} from "./isPersisted"
 export {default as isNewRecord} from "./isNewRecord"
