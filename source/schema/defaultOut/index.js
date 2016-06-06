@@ -1,4 +1,4 @@
-// (anything) -> f() -> f(anything) -> f() | anything
+// anything -> f() -> fa()
 export default function defaultOut (value, cast) {
   return (raw) => cast(raw) || value
 }
