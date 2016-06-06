@@ -14,17 +14,16 @@ Here's a simple abstraction:
 
 ``` javascript
 import {abstract} from "abstraction"
-import {text} from "abstraction"
-import {timestamp} from "abstraction"
+import {schema} from "abstraction"
 import moment from "moment"
 
 export default abstract({
   name: "accounts",
   schema: {
-    name: text,
-    email: text,
-    createdAt: timestamp,
-    updatedAt: timestamp
+    name: schema.text,
+    email: schema.text,
+    createdAt: schema.timestamp,
+    updatedAt: schema.timestamp
   }
 })
 ```
@@ -33,10 +32,8 @@ Here's a complex model (coercion + validation + scopes + queries + relationships
 
 ``` javascript
 import {abstract} from "abstraction"
-import {hasMany} from "abstraction"
-import {through} from "abstraction"
-import {text} from "abstraction"
-import {timestamp} from "abstraction"
+import {relations} from "abstraction"
+import {schema} from "abstraction"
 import {validation} from "abstraction"
 import moment from "moment"
 import {postgresKnex} from "~/remote"
@@ -47,10 +44,10 @@ export default abstract({
   name: "accounts",
   source: postgresKnex,
   schema: {
-    name: text({nullAllowed: false}),
-    email: text({nullAllowed: false}),
-    createdAt: timestamp({defaultTo: moment}),
-    updatedAt: timestamp({defaultTo: moment})
+    name: schema.text,
+    email: schema.stopNull(schema.text),
+    createdAt: schema.defaultIn(schema.timestamp, new Date()),
+    updatedAt: schema.defaultIn(schema.timestamp, new Date())
   },
   validations: {
     name: validation(({name}) => name.length >= MINIMUM_NAME_LENGTH)
@@ -59,12 +56,12 @@ export default abstract({
     nameMatches: (partial) => ({where: ["name", "like", partial]})
   },
   relationships: {
-    posts: ({id}) => hasMany({
+    posts: ({id}) => relations.hasMany({
       name: "posts",
       foreignKey: ["authorId", id],
       countCache: true
     }),
-    comments: ({id}) => through({
+    comments: ({id}) => relations.through({
       source: "posts",
       foreignKey: ["authorId", id]
     })
@@ -100,7 +97,7 @@ const attributes = {
   email: null
 }
 console.log(model(attributes))
-// Error: name can't be null
+// Error: email can't be null
 ```
 
 Here's coercion:

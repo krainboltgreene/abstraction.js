@@ -1,10 +1,8 @@
-// {defaultTo} -> f() -> true | false | Error
-export default function date (options = {}) {
-  const {defaultTo} = options
-
-  if (defaultTo) {
-    return (value = defaultTo) => new Date(value)
+// f() -> Date | Error
+export default function date (value) {
+  if (new Date(value) === "Invalid date") {
+    throw new Error("Invalid date")
   }
 
-  return (value) => new Date(value)
+  return new Date(value)
 }

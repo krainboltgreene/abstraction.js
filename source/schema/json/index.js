@@ -1,10 +1,8 @@
-// {defaultTo} -> f() -> true | false | Error
-export default function json (options = {}) {
-  const {defaultTo} = options
-
-  if (defaultTo) {
-    return (value = defaultTo) => JSON.parse(value)
+// f() -> anything | Error
+export default function json (value) {
+  if (value instanceof String) {
+    throw new Error("Non-string given to JSON.parse()")
   }
 
-  return (value) => JSON.parse(value)
+  return JSON.parse(value)
 }

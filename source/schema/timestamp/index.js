@@ -1,12 +1,10 @@
 import moment from "moment"
 
-// {defaultTo} -> f() -> true | false | Error
-export default function timestamp (options = {}) {
-  const {defaultTo} = options
-
-  if (defaultTo) {
-    return (value = defaultTo) => moment(new Date(value))
+// f() -> moment | Error
+export default function timestamp (value) {
+  if (new Date(value) === "Invalid Date") {
+    throw new Error("Invalid date")
   }
 
-  return (value) => moment(new Date(value))
+  return moment(new Date(value))
 }
