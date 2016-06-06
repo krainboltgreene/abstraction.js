@@ -9,6 +9,7 @@
 
 # Temporary files
 /tmp/
+/transpiled/
 
 # Log files
 /*.log
