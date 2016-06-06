@@ -46,8 +46,8 @@ export default abstract({
   schema: {
     name: schema.text,
     email: schema.stopNull(schema.text),
-    createdAt: schema.defaultIn(schema.timestamp, new Date()),
-    updatedAt: schema.defaultIn(schema.timestamp, new Date())
+    createdAt: schema.defaultIn(new Date(), schema.timestamp),
+    updatedAt: schema.defaultIn(new Date(), schema.timestamp)
   },
   validations: {
     name: validation(({name}) => name.length >= MINIMUM_NAME_LENGTH)
