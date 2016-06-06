@@ -1,8 +1,8 @@
 import {ifElse} from "ramda"
 import {isNil} from "ramda"
-import {identity} from "ramda"
+import {always} from "ramda"
 
 // f() -> fa()
 export default function passNull (cast) {
-  return ifElse(isNil, cast, identity)
+  return ifElse(isNil, always(null), cast)
 }
