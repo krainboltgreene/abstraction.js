@@ -1,6 +1,6 @@
 {
   "name": "abstraction",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "description": "A library for modeling abstract business logic or datatypes. Useful for SQL tables.",
   "main": "transpiled/source/index.js",
   "scripts": {
