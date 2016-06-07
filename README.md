@@ -35,6 +35,8 @@ import {abstract} from "abstraction"
 import {relations} from "abstraction"
 import {schema} from "abstraction"
 import {validation} from "abstraction"
+import {last} from "ramda"
+import {split} from "ramda"
 import moment from "moment"
 import {postgresKnex} from "~/remote"
 
@@ -43,11 +45,17 @@ const MINIMUM_NAME_LENGTH = 1
 export default abstract({
   name: "accounts",
   source: postgresKnex,
+  // SUPPORTED
   schema: {
     name: schema.text,
     email: schema.stopNull(schema.text),
     createdAt: schema.defaultIn(new Date(), schema.timestamp),
     updatedAt: schema.defaultIn(new Date(), schema.timestamp)
+  },
+  virtuals: {
+    emailDomain ({email}) {
+      return last(split("@", email))
+    }
   },
   validations: {
     name: validation(({name}) => name.length >= MINIMUM_NAME_LENGTH)

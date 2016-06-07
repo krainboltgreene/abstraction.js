@@ -7,10 +7,8 @@ import {merge} from "ramda"
 import {map} from "ramda"
 
 const coerce = (schema) => (value, key) => prop(key, schema)(value)
-const coerced = (schema) => pipe(
-  pick(keys(schema)),
-  mapObjIndexed(coerce(schema))
-)
+const coerced = (schema) => pipe(pick(keys(schema)), mapObjIndexed(coerce(schema)))
+const virtualized = (virtuals) => (raw) => map((virtual) => virtual(raw), virtuals)
 
 // {...} -> f()
 export default function abstract (configuration) {
@@ -18,12 +16,12 @@ export default function abstract (configuration) {
   const {schema} = configuration
   const {virtuals} = configuration
   const coercedFrom = coerced(schema)
-  const virtualizedFrom = (fields) => map((virtual) => virtual(fields))
+  const virtualizedFrom = virtualized(virtuals)
 
   return (raw) => {
     const coercedAttributes = coercedFrom(raw)
-    const virtualizedAttributes = virtualizedFrom(coercedAttributes)
-    const attributes = merge(coercedAttributes, virtualizedAttributes(virtuals))
+    const virtualizedAttributes = virtualizedFrom(raw)
+    const attributes = merge(coercedAttributes, virtualizedAttributes)
 
     return {
       type: name,
