@@ -107,7 +107,8 @@ module.exports = {
     "no-lone-blocks": "error",
     "no-lonely-if": "error",
     "no-loop-func": "error",
-    "no-magic-numbers": "error",
+    // Hmmmmm...
+    // "no-magic-numbers": "error",
     "no-mixed-requires": "error",
     "no-mixed-spaces-and-tabs": "error",
     "no-multi-spaces": "error",
