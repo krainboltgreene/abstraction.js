@@ -1,9 +1,14 @@
-import {apply} from "ramda"
 import {equals} from "ramda"
-import {pipe} from "ramda"
-import {props} from "ramda"
+import {path} from "ramda"
+import {juxt} from "ramda"
 
-// {created, updated, n} -> true | false
+const timestamps = [
+  path(["attributes", "createdAt"]),
+  path(["attributes", "updatedAt"])
+]
+const asTimestamps = juxt(timestamps)
+
+// {attributes: {created, updated, ...}, ...} -> true | false
 export default function isNewRecord (record) {
-  return pipe(props(["createdAt", "updatedAt"]), apply(equals))(record)
+  return equals(...asTimestamps(record))
 }

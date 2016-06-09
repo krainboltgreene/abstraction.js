@@ -7,8 +7,10 @@ describe("isNewRecord()", () => {
   describe("when the record has a a createdAt and updatedAt that are the same", () => {
     const timestamp = new Date()
     const record = {
-      createdAt: timestamp,
-      updatedAt: timestamp
+      attributes: {
+        createdAt: timestamp,
+        updatedAt: timestamp
+      }
     }
 
     it("returns true", () => {
@@ -18,8 +20,10 @@ describe("isNewRecord()", () => {
 
   describe("when the record has a a createdAt and updatedAt that are the different", () => {
     const record = {
-      createdAt: new Date("2016/01/01"),
-      updatedAt: new Date("2017/01/01")
+      attributes: {
+        createdAt: new Date("2016/01/01"),
+        updatedAt: new Date("2017/01/01")
+      }
     }
 
     it("returns false", () => {
