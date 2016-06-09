@@ -2,10 +2,9 @@
 
 A way of modeling your business logic in a compact and compose-able way.
 
-  - Completely promise-based
   - Does one job
-  - Works with `knex`
-  - Functions & Objects, that's it.
+  - Functions, Records, and Arrays, that's it.
+  - Works on multiple layers: ODM/ORM, Presenter, Serializer, Deserializer, Decorator, etc.
 
 
 ## using
