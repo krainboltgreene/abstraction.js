@@ -6,7 +6,9 @@ import isPersisted from "./index"
 describe("isPersisted()", () => {
   describe("when the record has a id", () => {
     const record = {
-      id: 1
+      attributes: {
+        id: 1
+      }
     }
 
     it("returns true", () => {
@@ -16,7 +18,9 @@ describe("isPersisted()", () => {
 
   describe("when the record id property is null", () => {
     const record = {
-      id: null
+      attributes: {
+        id: null
+      }
     }
 
     it("returns false", () => {
