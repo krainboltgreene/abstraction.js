@@ -13,25 +13,25 @@ Here's a simple abstraction:
 
 ``` javascript
 import {abstract} from "abstraction"
-import {schema} from "abstraction"
-import moment from "moment"
+import {text} from "abstraction"
+import {timestamp} from "abstraction"
 
 export default abstract({
   name: "accounts",
   schema: {
-    name: schema.text,
-    email: schema.text,
-    createdAt: schema.timestamp,
-    updatedAt: schema.timestamp
+    name: text,
+    email: text,
+    createdAt: timestamp,
+    updatedAt: timestamp
   }
 })
 ```
 
-Here's a complex model (coercion + validation + scopes + queries + relationships):
+Here's a complex model (coercion + validation + source + virtuals):
 
 ``` javascript
 import {abstract} from "abstraction"
-import {passNull} from "abstraction"
+import {ignoreNull} from "abstraction"
 import {defaultIn} from "abstraction"
 import {number} from "abstraction"
 import {text} from "abstraction"
@@ -49,7 +49,7 @@ export default abstract({
   // If `invitedAt` was a raw dataset property, it won't be in `attributes` due
   // to it not being listed in schema.
   schema: {
-    name: passNull(text),
+    name: ignoreNull(text),
     email: text,
     age: number,
     createdAt: defaultIn(new Date(), timestamp),
