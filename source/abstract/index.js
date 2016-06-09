@@ -16,9 +16,9 @@ const virtualized = (virtuals) => (raw) => map((virtual) => virtual(raw), virtua
 // {...} -> f()
 export default function abstract (configuration) {
   const {name} = configuration
+  const {source} = configuration || identity
   const {schema} = configuration
   const {virtuals} = configuration
-  const {source} = configuration || identity
   const {validations} = configuration
   const coercedFrom = coerced(schema)
   const virtualizedFrom = virtualized(virtuals)
@@ -31,7 +31,7 @@ export default function abstract (configuration) {
     const errors = keys(reject(applicate(attributes), validations))
 
     return {
-      type: name,
+      name,
       raw,
       errors,
       attributes
