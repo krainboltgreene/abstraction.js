@@ -9,7 +9,7 @@ import {contains} from "ramda"
 import {lte} from "ramda"
 import {text} from "../schema"
 import {defaultIn} from "../schema"
-import {passNull} from "../schema"
+import {ignoreNull} from "../schema"
 import {number} from "../schema"
 
 import abstract from "./index"
@@ -20,7 +20,7 @@ describe("abstract()", () => {
     name: "accounts",
     source: path(["data", "attributes"]),
     schema: {
-      name: passNull(text),
+      name: ignoreNull(text),
       email: text,
       age: number,
       currentCount: number,
