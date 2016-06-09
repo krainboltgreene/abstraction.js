@@ -32,32 +32,41 @@ Here's a complex model (coercion + validation + scopes + queries + relationships
 
 ``` javascript
 import {abstract} from "abstraction"
-import {relations} from "abstraction"
 import {passNull} from "abstraction"
 import {defaultIn} from "abstraction"
+import {number} from "abstraction"
 import {text} from "abstraction"
 import {timestamp} from "abstraction"
-import {validation} from "abstraction"
-import {path} from "ramda"
-import {last} from "ramda"
-import {split} from "ramda"
-import moment from "moment"
+import ... from "ramda"
 
-const MINIMUM_NAME_LENGTH = 1
+const MINIMUM_AGE = 21
 
 export default abstract({
   name: "accounts",
+  // NOTE: `source` lets you write a function to get your values. It could be
+  // a digging function like below, or a SQL query.
   source: path(["data", "attributes"]),
+  // NOTE: `schema` enforce type coercion and filter values from the raw dataset.
+  // If `invitedAt` was a raw dataset property, it won't be in `attributes` due
+  // to it not being listed in schema.
   schema: {
     name: passNull(text),
     email: text,
+    age: number,
     createdAt: defaultIn(new Date(), timestamp),
     updatedAt: defaultIn(new Date(), timestamp)
   },
+  // NOTE: Virtual attributes are derived from the raw dataset.
   virtuals: {
     emailDomain ({email}) {
       return last(split("@", email))
     }
+  },
+  // NOTE: Validations receive the final attributes and should return true. the
+  // key should be used as a slug to the correct message.
+  validations: {
+    emailMatchesPattern: pipe(prop("email"), contains("@")),
+    oldEnough: pipe(prop("age"), lte(MINIMUM_AGE))
   }
 })
 ```
@@ -67,16 +76,24 @@ Here's an example of modeling the attributes:
 ``` javascript
 import {model} from "~/application/accounts"
 
-const attributes = {
+const raw = {
   name: "Kurtis Rainbolt-Greene",
   email: "me@kurtisrainboltgreene.name"
 }
-console.log(model(attributes))
+console.log(model(raw))
 // {
-//   name: "Kurtis Rainbolt-Greene",
-//   email: "me@kurtisrainboltgreene.name",
-//   createdAt: 2016-05-23T07:02:06.195Z,
-//   createdAt: 2016-05-23T07:02:06.195Z
+//   name: "accounts",
+//   raw: {
+//     name: "Kurtis Rainbolt-Greene",
+//     email: "me@kurtisrainboltgreene.name"
+//   },
+//   errors: [],
+//   attributes: {
+//     name: "Kurtis Rainbolt-Greene",
+//     email: "me@kurtisrainboltgreene.name",
+//     createdAt: 2016-05-23T07:02:06.195Z,
+//     createdAt: 2016-05-23T07:02:06.195Z
+//   }
 // }
 ```
 
@@ -90,10 +107,25 @@ const attributes = {
   email: null
 }
 console.log(model(attributes))
-// Error: email can't be null
+// {
+//   name: "accounts",
+//   raw: {
+//     name: null,
+//     email: "null"
+//   },
+//   errors: [
+//     "emailMatchesPattern"
+//   ],
+//   attributes: {
+//     name: "Kurtis Rainbolt-Greene",
+//     email: "me@kurtisrainboltgreene.name",
+//     createdAt: 2016-05-23T07:02:06.195Z,
+//     createdAt: 2016-05-23T07:02:06.195Z
+//   }
+// }
 ```
 
-Here's coercion:
+Here's type coercion in action:
 
 ``` javascript
 import {model} from "~/application/accounts"
@@ -105,9 +137,17 @@ const attributes = {
 }
 console.log(model(attributes))
 // {
-//   name: "Kurtis Rainbolt-Greene",
-//   email: "me@kurtisrainboltgreene.name",
-//   createdAt: 2016-01-01T08:00:00.000Z,
-//   createdAt: 2016-05-23T07:02:06.195Z
+//   name: "accounts",
+//   raw: {
+//     name: "Kurtis Rainbolt-Greene",
+//     email: "me@kurtisrainboltgreene.name"
+//   },
+//   errors: [],
+//   attributes: {
+//     name: "Kurtis Rainbolt-Greene",
+//     email: "me@kurtisrainboltgreene.name",
+//     createdAt: 2016-01-01T08:00:00.000Z,
+//     createdAt: 2016-05-23T07:02:06.195Z
+//   }
 // }
 ```
