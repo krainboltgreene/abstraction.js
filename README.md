@@ -33,46 +33,31 @@ Here's a complex model (coercion + validation + scopes + queries + relationships
 ``` javascript
 import {abstract} from "abstraction"
 import {relations} from "abstraction"
-import {schema} from "abstraction"
+import {passNull} from "abstraction"
+import {defaultIn} from "abstraction"
+import {text} from "abstraction"
+import {timestamp} from "abstraction"
 import {validation} from "abstraction"
+import {path} from "ramda"
 import {last} from "ramda"
 import {split} from "ramda"
 import moment from "moment"
-import {postgresKnex} from "~/remote"
 
 const MINIMUM_NAME_LENGTH = 1
 
 export default abstract({
   name: "accounts",
-  source: postgresKnex,
-  // SUPPORTED
+  source: path(["data", "attributes"]),
   schema: {
-    name: schema.text,
-    email: schema.stopNull(schema.text),
-    createdAt: schema.defaultIn(new Date(), schema.timestamp),
-    updatedAt: schema.defaultIn(new Date(), schema.timestamp)
+    name: passNull(text),
+    email: text,
+    createdAt: defaultIn(new Date(), timestamp),
+    updatedAt: defaultIn(new Date(), timestamp)
   },
   virtuals: {
     emailDomain ({email}) {
       return last(split("@", email))
     }
-  },
-  validations: {
-    name: validation(({name}) => name.length >= MINIMUM_NAME_LENGTH)
-  },
-  scopes: {
-    nameMatches: (partial) => ({where: ["name", "like", partial]})
-  },
-  relationships: {
-    posts: ({id}) => relations.hasMany({
-      name: "posts",
-      foreignKey: ["authorId", id],
-      countCache: true
-    }),
-    comments: ({id}) => relations.through({
-      source: "posts",
-      foreignKey: ["authorId", id]
-    })
   }
 })
 ```
