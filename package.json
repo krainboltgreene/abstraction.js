@@ -68,7 +68,7 @@
     "eslint-plugin-node": "^1",
     "greenkeeper": "^2",
     "mocha": "^2",
-    "moment": "^2.13.0",
+    "moment": "^2",
     "npm": "^3",
     "npm-run-all": "^2"
   },
