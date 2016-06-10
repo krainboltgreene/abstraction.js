@@ -64,9 +64,9 @@
     "eslint-plugin-babel": "^3",
     "eslint-plugin-immutable": "^1",
     "eslint-plugin-import": "^1",
-    "eslint-plugin-mocha": "^2",
+    "eslint-plugin-mocha": "^3.0.0",
     "eslint-plugin-node": "^1",
-    "greenkeeper": "^2",
+    "greenkeeper": "^3.0.0",
     "mocha": "^2",
     "moment": "^2",
     "npm": "^3",
@@ -78,7 +78,7 @@
   },
   "dependencies": {
     "bunyan": "^1",
-    "knex": "0.10.0",
+    "knex": "0.11.5",
     "ramda": "0.21.0"
   }
 }
