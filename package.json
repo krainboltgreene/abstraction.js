@@ -22,7 +22,10 @@
     "abstract",
     "model",
     "orm",
-    "odm"
+    "odm",
+    "presenter",
+    "serializer",
+    "decorator"
   ],
   "author": "Kurtis Rainbolt-Greene (@krainboltgreene) <me@kurtisrainboltgreene.name>",
   "license": "ISC",
