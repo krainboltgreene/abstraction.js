@@ -1,7 +1,7 @@
 {
   "name": "abstraction",
   "version": "6.0.0",
-  "description": "A library for modeling abstract business logic or datatypes. Useful for SQL tables.",
+  "description": "A library for modeling abstract business logic or wrapping data structures.",
   "main": "transpiled/source/index.js",
   "scripts": {
     "prepublish": "npm run build",
@@ -44,11 +44,6 @@
     "babel-plugin-transform-es2015-spread": "^6",
     "babel-plugin-transform-es2015-sticky-regex": "^6",
     "babel-plugin-transform-es2015-unicode-regex": "^6",
-    "babel-plugin-transform-es3-member-expression-literals": "^6",
-    "babel-plugin-transform-es3-property-literals": "^6",
-    "babel-plugin-transform-es5-property-mutators": "^6",
-    "babel-plugin-transform-eval": "^6",
-    "babel-plugin-transform-exponentiation-operator": "^6",
     "babel-plugin-transform-export-extensions": "^6",
     "babel-plugin-transform-function-bind": "^6",
     "babel-plugin-transform-member-expression-literals": "^6",
@@ -57,7 +52,6 @@
     "babel-plugin-transform-object-set-prototype-of-to-assign": "^6",
     "babel-plugin-transform-property-literals": "^6",
     "babel-plugin-transform-proto-to-assign": "^6",
-    "babel-plugin-transform-runtime": "^6",
     "chai": "^3",
     "chokidar-cli": "^1",
     "eslint": "^2",

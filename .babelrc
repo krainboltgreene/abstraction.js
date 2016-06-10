@@ -9,11 +9,6 @@
     "transform-es2015-spread",
     "transform-es2015-sticky-regex",
     "transform-es2015-unicode-regex",
-    "transform-es3-member-expression-literals",
-    "transform-es3-property-literals",
-    "transform-es5-property-mutators",
-    "transform-eval",
-    "transform-exponentiation-operator",
     "transform-export-extensions",
     "transform-function-bind",
     "transform-member-expression-literals",
@@ -21,7 +16,6 @@
     "transform-object-rest-spread",
     "transform-object-set-prototype-of-to-assign",
     "transform-property-literals",
-    "transform-proto-to-assign",
-    "transform-runtime"
+    "transform-proto-to-assign"
   ]
 }
