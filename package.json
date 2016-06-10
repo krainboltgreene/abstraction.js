@@ -61,7 +61,7 @@
     "eslint-plugin-babel": "^3",
     "eslint-plugin-immutable": "^1",
     "eslint-plugin-import": "^1",
-    "eslint-plugin-mocha": "^2",
+    "eslint-plugin-mocha": "^3",
     "eslint-plugin-node": "^1",
     "greenkeeper": "^2",
     "mocha": "^2",
