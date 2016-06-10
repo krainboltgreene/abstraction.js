@@ -1,13 +1,26 @@
 # abstraction
 
-A way of modeling your business logic in a compact and compose-able way.
+A way of modeling your business logic or data structures in a compact and compose-able way.
 
   - Does one job
   - Functions, Records, and Arrays, that's it.
   - Works on multiple layers: ODM/ORM, Presenter, Serializer, Deserializer, Decorator, etc.
 
+![Version][BADGE_VERSION]
+![Tests][BADGE_TRAVIS]
+![Stability][BADGE_STABILITY]
+![Dependencies][BADGE_DEPENDENCY]
+
 
 ## using
+
+Features:
+
+  - Property filtering
+  - Type coercion
+  - Validations
+  - Virtual attributes
+  - Scoping
 
 Here's a simple abstraction:
 
@@ -150,3 +163,8 @@ console.log(model(attributes))
 //   }
 // }
 ```
+
+[BADGE_TRAVIS]: https://img.shields.io/travis/krainboltgreene/abstraction.js.svg?maxAge=2592000&style=flat-square
+[BADGE_VERSION]: https://img.shields.io/npm/v/abstraction.svg?maxAge=2592000&style=flat-square
+[BADGE_STABILITY]: https://img.shields.io/badge/stability-strong-green.svg?maxAge=2592000&style=flat-square
+[BADGE_DEPENDENCY]: https://img.shields.io/david/krainboltgreene/abstraction.js.svg?maxAge=2592000&style=flat-square
