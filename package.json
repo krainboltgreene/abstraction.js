@@ -70,12 +70,10 @@
     "npm-run-all": "^2"
   },
   "peerDependency": {
-    "pg": "^4",
     "moment": "^2"
   },
   "dependencies": {
     "bunyan": "^1",
-    "knex": "0.10.0",
     "ramda": "0.21.0"
   }
 }
