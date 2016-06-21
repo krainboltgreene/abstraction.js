@@ -63,7 +63,7 @@
     "eslint-plugin-import": "^1",
     "eslint-plugin-mocha": "^3",
     "eslint-plugin-node": "^1",
-    "greenkeeper": "^2",
+    "greenkeeper": "^3.1.0",
     "mocha": "^2",
     "moment": "^2",
     "npm": "^3",
