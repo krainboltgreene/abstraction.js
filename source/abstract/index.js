@@ -16,7 +16,7 @@ const virtualized = (virtuals) => (raw) => map((virtual) => virtual(raw), virtua
 // {...} -> f()
 export default function abstract (configuration) {
   const {name} = configuration
-  const {source} = configuration || identity
+  const {source = identity} = configuration
   const {schema} = configuration
   const {virtuals} = configuration
   const {validations} = configuration
