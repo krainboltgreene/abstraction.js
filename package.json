@@ -74,6 +74,6 @@
   },
   "dependencies": {
     "bunyan": "^1",
-    "ramda": "0.22.0"
+    "ramda": "0.22.1"
   }
 }
