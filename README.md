@@ -68,7 +68,7 @@ export default abstract({
     createdAt: defaultIn(new Date(), timestamp),
     updatedAt: defaultIn(new Date(), timestamp)
   },
-  // NOTE: Virtual attributes are derived from the raw dataset.
+  // NOTE: Virtual attributes are derived from the coerced dataset.
   virtuals: {
     emailDomain ({email}) {
       return last(split("@", email))

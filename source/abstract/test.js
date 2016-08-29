@@ -176,7 +176,7 @@ describe("abstract()", () => {
     }
 
     it("throws an error", () => {
-      expect(() => abstract(definition)(raw)).to.throw(Error, "No data was derived from the source for the abstraction accounts")
+      expect(() => abstract(definition)(raw)).to.throw(Error, "No sourced data was derived from the source function for the abstraction accounts")
     })
   })
 })
