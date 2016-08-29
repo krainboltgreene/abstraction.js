@@ -137,7 +137,7 @@ describe("abstract()", () => {
     const raw = null
 
     it("throws an error", () => {
-      expect(() => abstract(definition)(raw)).to.throw(Error, "No raw data provided to the abstraction accounts")
+      expect(() => abstract(definition)(raw)).to.throw(Error, "The incoming value was supposed to be an Object for the abstraction accounts, it was actually Null")
     })
   })
 
@@ -176,7 +176,7 @@ describe("abstract()", () => {
     }
 
     it("throws an error", () => {
-      expect(() => abstract(definition)(raw)).to.throw(Error, "No sourced data was derived from the source function for the abstraction accounts")
+      expect(() => abstract(definition)(raw)).to.throw(Error, "The source function was supposed to return an Object for the abstraction accounts, it was actually Null")
     })
   })
 })
