@@ -94,17 +94,17 @@ const raw = {
 }
 console.log(model(raw))
 // {
-//   name: "accounts",
-//   raw: {
-//     name: "Kurtis Rainbolt-Greene",
-//     email: "me@kurtisrainboltgreene.name"
-//   },
-//   errors: [],
-//   attributes: {
-//     name: "Kurtis Rainbolt-Greene",
-//     email: "me@kurtisrainboltgreene.name",
-//     createdAt: 2016-05-23T07:02:06.195Z,
-//     createdAt: 2016-05-23T07:02:06.195Z
+//   name: "Kurtis Rainbolt-Greene",
+//   email: "me@kurtisrainboltgreene.name",
+//   createdAt: 2016-05-23T07:02:06.195Z,
+//   updatedAt: 2016-05-23T07:02:06.195Z,
+//   __abstraction__: {
+//     name: "accounts",
+//     errors: Function,
+//     raw: {
+//       name: "Kurtis Rainbolt-Greene",
+//       email: "me@kurtisrainboltgreene.name"
+//     }
 //   }
 // }
 ```
@@ -114,27 +114,12 @@ Here's validation:
 ``` javascript
 import {model} from "~/application/accounts"
 
-const attributes = {
+const raw = {
   name: null,
   email: null
 }
-console.log(model(attributes))
-// {
-//   name: "accounts",
-//   raw: {
-//     name: null,
-//     email: "null"
-//   },
-//   errors: [
-//     "emailMatchesPattern"
-//   ],
-//   attributes: {
-//     name: "Kurtis Rainbolt-Greene",
-//     email: "me@kurtisrainboltgreene.name",
-//     createdAt: 2016-05-23T07:02:06.195Z,
-//     createdAt: 2016-05-23T07:02:06.195Z
-//   }
-// }
+console.log(model(raw)).errors()
+// ["emailMatchesPattern"]
 ```
 
 Here's type coercion in action:
@@ -142,24 +127,24 @@ Here's type coercion in action:
 ``` javascript
 import {model} from "~/application/accounts"
 
-const attributes = {
+const raw = {
   name: "Kurtis Rainbolt-Greene",
   email: "me@kurtisrainboltgreene.name",
   createdAt: "2016/01/01"
 }
-console.log(model(attributes))
+console.log(model(raw))
 // {
-//   name: "accounts",
-//   raw: {
-//     name: "Kurtis Rainbolt-Greene",
-//     email: "me@kurtisrainboltgreene.name"
-//   },
-//   errors: [],
-//   attributes: {
-//     name: "Kurtis Rainbolt-Greene",
-//     email: "me@kurtisrainboltgreene.name",
-//     createdAt: 2016-01-01T08:00:00.000Z,
-//     createdAt: 2016-05-23T07:02:06.195Z
+//   name: "Kurtis Rainbolt-Greene",
+//   email: "me@kurtisrainboltgreene.name",
+//   createdAt: 2016-01-01T00:00:00.000Z,
+//   updatedAt: 2016-05-23T07:02:06.195Z,
+//   __abstraction__: {
+//     name: "accounts",
+//     errors: Function,
+//     raw: {
+//       name: "Kurtis Rainbolt-Greene",
+//       email: "me@kurtisrainboltgreene.name"
+//     }
 //   }
 // }
 ```

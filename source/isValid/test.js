@@ -6,9 +6,9 @@ import isValid from "./index"
 describe("isValid()", () => {
   describe("when the record has errors", () => {
     const record = {
-      errors: [
-        "a"
-      ]
+      __abstraction__: {
+        errors: () => ["a"]
+      }
     }
 
     it("returns false", () => {
@@ -18,7 +18,9 @@ describe("isValid()", () => {
 
   describe("when the record has no errors", () => {
     const record = {
-      errors: []
+      __abstraction__: {
+        errors: () => []
+      }
     }
 
     it("returns true", () => {

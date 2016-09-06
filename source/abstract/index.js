@@ -54,10 +54,12 @@ export default function abstract (configuration) {
     const errors = keys(reject(applicate(attributes), validations))
 
     return {
-      name,
-      raw,
-      errors,
-      attributes
+      __abstraction__: {
+        name,
+        raw,
+        errors
+      },
+      ...attributes
     }
   }
 }

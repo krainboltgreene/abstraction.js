@@ -50,27 +50,27 @@ describe("abstract()", () => {
     }
 
     it("returns a record with raw attributes", () => {
-      expect(abstract(definition)(raw)).to.have.deep.property("raw.data.attributes.email", "me@kurtisrainboltgreene.name")
+      expect(abstract(definition)(raw)).to.have.deep.property("__abstraction__.raw.data.attributes.email", "me@kurtisrainboltgreene.name")
     })
 
     it("returns a record with coerced attributes", () => {
-      expect(abstract(definition)(raw)).to.have.deep.property("attributes.currentCount", 4)
+      expect(abstract(definition)(raw)).to.have.deep.property("currentCount", 4)
     })
 
     it("returns a record with defaulted attributes", () => {
-      expect(abstract(definition)(raw)).to.have.deep.property("attributes.previousCount", 0)
+      expect(abstract(definition)(raw)).to.have.deep.property("previousCount", 0)
     })
 
     it("returns a record with null attributes", () => {
-      expect(abstract(definition)(raw)).to.have.deep.property("attributes.name", null)
+      expect(abstract(definition)(raw)).to.have.deep.property("name", null)
     })
 
     it("returns a record with virtual attributes", () => {
-      expect(abstract(definition)(raw)).to.have.deep.property("attributes.emailDomain", "kurtisrainboltgreene.name")
+      expect(abstract(definition)(raw)).to.have.deep.property("emailDomain", "kurtisrainboltgreene.name")
     })
 
     it("returns a record with an error field", () => {
-      expect(abstract(definition)(raw)).to.have.deep.property("errors.0", "oldEnough")
+      expect(abstract(definition)(raw)).to.have.deep.property("__abstraction__.errors.0", "oldEnough")
     })
   })
 
