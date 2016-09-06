@@ -179,4 +179,31 @@ describe("abstract()", () => {
       expect(() => abstract(definition)(raw)).to.throw(Error, "The source function was supposed to return an Object for the abstraction accounts, it was actually Null")
     })
   })
+
+  context("with the withoutMetadata toggled", () => {
+    const definition = {
+      name: "accounts",
+      withoutMetadata: true,
+      schema: {
+        name: ignoreNull(text),
+        email: text,
+        age: number,
+        currentCount: number,
+        previousCount: defaultIn(0, number)
+      }
+    }
+    const raw = {
+      attributes: {
+        name: null,
+        email: "me@kurtisrainboltgreene.name",
+        age: 19,
+        currentCount: "4",
+        previousCount: null
+      }
+    }
+
+    it("omits the __abstraction__ information", () => {
+      expect(() => abstract(definition)(raw)).to.not.have.deep.property("__abstraction__")
+    })
+  })
 })

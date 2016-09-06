@@ -17,6 +17,7 @@ export default function abstract (configuration) {
   const {schema = {}} = configuration
   const {virtuals = {}} = configuration
   const {validations = []} = configuration
+  const {withoutMetadata = false} = configuration
 
   if (isNil(name)) {
     throw new Error("No name defined for this abstraction")
@@ -52,6 +53,10 @@ export default function abstract (configuration) {
     }
 
     const errors = keys(reject(applicate(attributes), validations))
+
+    if (withoutMetadata) {
+      return attributes
+    }
 
     return {
       __abstraction__: {
