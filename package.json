@@ -1,6 +1,6 @@
 {
   "name": "abstraction",
-  "version": "6.4.0",
+  "version": "7.0.0",
   "description": "A library for modeling abstract business logic or wrapping data structures.",
   "main": "transpiled/source/index.js",
   "scripts": {
