@@ -1,7 +1,6 @@
 {
   "presets": [
-    "latest",
-    "babili"
+    "latest"
   ],
   "plugins": [
     "transform-object-rest-spread",

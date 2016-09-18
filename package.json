@@ -45,7 +45,6 @@
     "babel-plugin-closure-elimination": "^1",
     "babel-plugin-relative-import": "^1.0.3",
     "babel-plugin-transform-object-rest-spread": "^6",
-    "babel-preset-babili": "0.0.2",
     "babel-preset-latest": "^6",
     "babel-relative-import": "^1",
     "chai": "^3",
