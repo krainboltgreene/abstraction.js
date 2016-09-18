@@ -18,6 +18,10 @@
     "type": "git",
     "url": "git+https://github.com/krainboltgreene/abstraction.js.git"
   },
+  "engines": {
+    "node": "^6",
+    "npm": "^3"
+  },
   "keywords": [
     "abstract",
     "model",
