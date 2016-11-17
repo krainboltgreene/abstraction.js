@@ -49,7 +49,7 @@
     "chai": "^3",
     "chokidar-cli": "^1",
     "eslint": "^3",
-    "eslint-plugin-babel": "^3",
+    "eslint-plugin-babel": "^4.0.0",
     "eslint-plugin-immutable": "^1",
     "eslint-plugin-import": "^1",
     "eslint-plugin-mocha": "^4",
