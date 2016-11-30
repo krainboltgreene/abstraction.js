@@ -38,12 +38,9 @@
   },
   "homepage": "https://github.com/krainboltgreene/abstraction.js#readme",
   "devDependencies": {
-    "babel": "^6",
     "babel-cli": "^6",
     "babel-core": "^6",
     "babel-eslint": "^7",
-    "babel-plugin-closure-elimination": "^1",
-    "babel-plugin-relative-import": "^1",
     "babel-plugin-transform-object-rest-spread": "^6",
     "babel-preset-latest": "^6",
     "chai": "^3",
@@ -56,14 +53,9 @@
     "eslint-plugin-node": "^2",
     "greenkeeper": "^4",
     "mocha": "^3",
-    "moment": "^2",
     "npm-run-all": "^3"
   },
-  "peerDependency": {
-    "moment": "^2"
-  },
   "dependencies": {
-    "bunyan": "^1",
     "ramda": "0.22.1"
   }
 }

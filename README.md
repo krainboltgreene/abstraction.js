@@ -27,15 +27,15 @@ Here's a simple abstraction:
 ``` javascript
 import {abstract} from "abstraction"
 import {text} from "abstraction"
-import {timestamp} from "abstraction"
+import moment from "moment"
 
 export default abstract({
   name: "accounts",
   schema: {
     name: text,
     email: text,
-    createdAt: timestamp,
-    updatedAt: timestamp
+    createdAt: moment,
+    updatedAt: moment
   }
 })
 ```
@@ -48,8 +48,14 @@ import {ignoreNull} from "abstraction"
 import {defaultIn} from "abstraction"
 import {number} from "abstraction"
 import {text} from "abstraction"
-import {timestamp} from "abstraction"
-import ... from "ramda"
+import moment from "moment"
+import {propSatisfies} from "ramda"
+import {prop} from "ramda"
+import {pipe} from "ramda"
+import {split} from "ramda"
+import {last} from "ramda"
+import {lte} from "ramda"
+import {path} from "ramda"
 
 const MINIMUM_AGE = 21
 
@@ -65,20 +71,18 @@ export default abstract({
     name: ignoreNull(text),
     email: text,
     age: number,
-    createdAt: defaultIn(new Date(), timestamp),
-    updatedAt: defaultIn(new Date(), timestamp)
+    createdAt: defaultIn(new Date(), moment),
+    updatedAt: defaultIn(new Date(), moment)
   },
   // NOTE: Virtual attributes are derived from the coerced dataset.
   virtuals: {
-    emailDomain ({email}) {
-      return last(split("@", email))
-    }
+    emailDomain: pipe(prop("email"), split("@"), last)
   },
   // NOTE: Validations receive the final attributes and should return true. the
   // key should be used as a slug to the correct message.
   validations: {
-    emailMatchesPattern: pipe(prop("email"), contains("@")),
-    oldEnough: pipe(prop("age"), lte(MINIMUM_AGE))
+    emailMatchesPattern: propSatisfies(contains("@"), "email")),
+    oldEnough: propSatisfies(lte(MINIMUM_AGE), "age"))
   }
 })
 ```
