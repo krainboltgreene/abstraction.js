@@ -3,8 +3,6 @@
     "latest"
   ],
   "plugins": [
-    "transform-object-rest-spread",
-    "relative-import",
-    "closure-elimination"
+    "transform-object-rest-spread"
   ]
 }
