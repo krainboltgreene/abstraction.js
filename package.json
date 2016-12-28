@@ -56,6 +56,6 @@
     "npm-run-all": "^3"
   },
   "dependencies": {
-    "ramda": "0.22.1"
+    "ramda": "0.23.0"
   }
 }
