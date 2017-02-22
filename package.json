@@ -53,7 +53,7 @@
     "eslint-plugin-node": "^3",
     "greenkeeper": "^4",
     "mocha": "^3",
-    "npm-run-all": "^3"
+    "npm-run-all": "^4.0.2"
   },
   "dependencies": {
     "ramda": "0.22.1"
