@@ -39,7 +39,7 @@
     "babel-core": "6.23.1",
     "babel-eslint": "7.1.1",
     "babel-plugin-transform-object-rest-spread": "6.23.0",
-    "babel-preset-env": "1.2.0",
+    "babel-preset-env": "1.2.2",
     "babel-preset-flow": "6.23.0",
     "babel-tap": "5.0.0",
     "chokidar-cli": "1.2.0",
