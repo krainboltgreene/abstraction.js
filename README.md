@@ -14,13 +14,61 @@ A way of modeling your business logic or data structures in a compact and compos
 
 ## using
 
-Features:
 
-  - Property filtering
-  - Type coercion
-  - Validations
-  - Virtual attributes
-  - Scoping
+``` javascript
+export default class Account extends Abstract {
+  static schema = {
+    id: {
+      type: String,
+      source: prop("id")
+    },
+    attributes: {
+      type: AccountAttributes,
+      source: prop("attributes"),
+      coerce: AccountAttributes,
+    }
+  }
+}
+```
+
+``` javascript
+export default class AccountAttributes extends Abstract {
+  static schema = {
+    name: {
+      type: [String, null],
+      source: prop("name"),
+    },
+    email: {
+      type: String,
+      source: prop("email"),
+    },
+    age: {
+      type: Number,
+      source: prop("age"),
+    },
+    createdAt: {
+      type: Date,
+      source: prop("created-at"),
+      coercion: moment,
+    },
+    updatedAt: {
+      type: Date,
+      source: prop("updated-at"),
+      coercion: moment,
+    },
+  }
+
+  static virtuals = {
+    emailDomain: pipe(prop("email"), split("@"), last)
+  }
+
+  static validations = {
+    emailMatchesPattern: propSatisfies(contains("@"), "email")),
+    oldEnough: propSatisfies(lte(MINIMUM_AGE), "age")),
+  }
+}
+```
+
 
 Here's a simple abstraction:
 
