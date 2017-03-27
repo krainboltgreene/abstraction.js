@@ -1,7 +1,5 @@
 # abstraction
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/krainboltgreene/abstraction.js.svg)](https://greenkeeper.io/)
-
 A way of modeling your business logic or data structures in a compact and compose-able way.
 
   - Does one job
