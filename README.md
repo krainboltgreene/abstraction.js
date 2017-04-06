@@ -4,7 +4,7 @@ A way of modeling your business logic or data structures in a compact and compos
 
   - Does one job
   - Functions, Records, and Arrays, that's it.
-  - Works on multiple layers: ODM/ORM, Presenter, Serializer, Deserializer, Decorator, etc.
+  - Works for many uses: ODM/ORM, Presenter, Serializer, Deserializer, Decorator, etc.
 
 ![Version][BADGE_VERSION]
 ![Tests][BADGE_TRAVIS]
