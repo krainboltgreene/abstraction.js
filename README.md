@@ -31,34 +31,35 @@ export default class Account extends Abstract {
 }
 ```
 
+
 ``` javascript
 export default class AccountAttributes extends Abstract {
   static schema = {
     name: {
-      type: [String, null],
+      as: [String, null],
       source: prop("name"),
     },
     email: {
-      type: String,
+      as: String,
       source: prop("email"),
     },
     age: {
-      type: Number,
+      as: Number,
       source: prop("age"),
     },
     createdAt: {
-      type: Date,
+      as: Date,
       source: prop("created-at"),
       coercion: moment,
     },
     updatedAt: {
-      type: Date,
+      as: Date,
       source: prop("updated-at"),
       coercion: moment,
     },
   }
 
-  static virtuals = {
+  static virtual = {
     emailDomain: pipe(prop("email"), split("@"), last)
   }
 
