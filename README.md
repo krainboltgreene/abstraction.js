@@ -4,7 +4,7 @@ A way of modeling your business logic or data structures in a compact and compos
 
   - Does one job
   - Functions, Records, and Arrays, that's it.
-  - Works on multiple layers: ODM/ORM, Presenter, Serializer, Deserializer, Decorator, etc.
+  - Works for many uses: ODM/ORM, Presenter, Serializer, Deserializer, Decorator, etc.
 
 ![Version][BADGE_VERSION]
 ![Tests][BADGE_TRAVIS]
@@ -14,13 +14,63 @@ A way of modeling your business logic or data structures in a compact and compos
 
 ## using
 
-Features:
+Lets say you want to ensure the data your user enters is correct before going to the server:
 
-  - Property filtering
-  - Type coercion
-  - Validations
-  - Virtual attributes
-  - Scoping
+``` javascript
+export default class Account extends Abstract {
+  static schema = {
+    id: {
+      type: String,
+      source: prop("id")
+    },
+    attributes: {
+      type: AccountAttributes,
+      source: prop("attributes"),
+      coerce: AccountAttributes,
+    }
+  }
+}
+```
+
+
+``` javascript
+export default class AccountAttributes extends Abstract {
+  static schema = {
+    name: {
+      as: [String, null],
+      source: prop("name"),
+    },
+    email: {
+      as: String,
+      source: prop("email"),
+    },
+    age: {
+      as: Number,
+      source: prop("age"),
+    },
+    createdAt: {
+      as: Date,
+      source: prop("created-at"),
+      coercion: moment,
+    },
+    updatedAt: {
+      as: Date,
+      source: prop("updated-at"),
+      coercion: moment,
+    },
+  }
+
+  static virtual = {
+    emailDomain: pipe(prop("email"), split("@"), last)
+  }
+
+  static validations = {
+    emailMatchesPattern: propSatisfies(contains("@"), "email")),
+    oldEnough: propSatisfies(lte(MINIMUM_AGE), "age")),
+  }
+}
+```
+
 
 Here's a simple abstraction:
 
