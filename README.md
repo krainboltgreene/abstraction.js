@@ -14,6 +14,7 @@ A way of modeling your business logic or data structures in a compact and compos
 
 ## using
 
+Lets say you want to ensure the data your user enters is correct before going to the server:
 
 ``` javascript
 export default class Account extends Abstract {
