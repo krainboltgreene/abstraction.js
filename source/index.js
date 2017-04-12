@@ -1,12 +1,26 @@
-export {default as abstract} from "./abstract"
-export {default as isValid} from "./isValid"
-export {boolean} from "./schema"
-export {date} from "./schema"
-export {json} from "./schema"
-export {number} from "./schema"
-export {text} from "./schema"
-export {unknown} from "./schema"
-export {list} from "./schema"
-export {defaultIn} from "./schema"
-export {defaultOut} from "./schema"
-export {ignoreNull} from "./schema"
+import {map} from "ramda"
+import {isEmpty} from "ramda"
+import {reject} from "ramda"
+import {validates} from "validus"
+
+import asForgedAttribute from "./asForgedAttribute"
+
+export default function abstraction (configuration: ConfigurationType): Function {
+  const {attributes} = configuration
+  const {validations = {}} = configuration
+
+  return function abstractionConfiguration (rawAttributes: RawAttributesType): AbstractionInstanceType {
+    const data = map(asForgedAttribute(rawAttributes), attributes)
+    const errors = reject(isEmpty, validates(validations)(data))
+    const isValid = isEmpty(errors)
+
+    return {
+      ...data,
+      __abstraction__: {
+        errors,
+        isValid,
+        validations,
+      }
+    }
+  }
+}
