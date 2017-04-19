@@ -8,10 +8,10 @@ import {type} from "ramda"
 import {pipe} from "ramda"
 import {split} from "ramda"
 import {head} from "ramda"
-import {isPresent} from "ramda-extra"
-import {isPopulated} from "ramda-extra"
-import {endsWith} from "ramda-extra"
-import {lacksText} from "ramda-extra"
+import isPresent from "@unction/isPresent"
+import isPopulated from "@unction/isPopulated"
+import endsWith from "@unction/endsWith"
+import lacksText from "@unction/lacksText"
 
 import abstraction from "./"
 
@@ -82,9 +82,9 @@ test(({include, end}) => {
     id: "1",
     type: "accounts",
     attributes: {
-      name: "Kurtis Rainbolt-Greene",
-      age: "27",
-      email: "kurtis@amazon.com",
+      "name": "Kurtis Rainbolt-Greene",
+      "age": "27",
+      "email": "kurtis@amazon.com",
       "created-at": "2013-02-04T10:35:24-08:00",
     }
   }

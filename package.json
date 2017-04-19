@@ -53,11 +53,14 @@
     "greenkeeper": "4.2.1",
     "npm-run-all": "4.0.2",
     "sinon": "2.1.0",
-    "tap": "10.3.0"
+    "tap": "10.3.0",
+    "@unction/isPresent": "1.0.0",
+    "@unction/isPopulated": "1.0.0",
+    "@unction/endsWith": "1.0.0",
+    "@unction/lacksText": "1.0.0"
   },
   "dependencies": {
     "ramda": "0.23.0",
-    "ramda-extra": "4.1.2",
     "validus": "1.0.1"
   }
 }
