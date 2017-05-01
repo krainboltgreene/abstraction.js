@@ -5,13 +5,16 @@ import {validates} from "validus"
 
 import asForgedAttribute from "./asForgedAttribute"
 
+const removeEmpty = reject(isEmpty)
+
 export default function abstraction (configuration: ConfigurationType): Function {
   const {attributes} = configuration
   const {validations = {}} = configuration
+  const validateValidations = validates(validations)
 
   return function abstractionConfiguration (rawAttributes: RawAttributesType): AbstractionInstanceType {
-    const errors = reject(isEmpty, validates(validations)(data))
     const data = mapValues(asForgedAttribute(rawAttributes))(attributes)
+    const errors = removeEmpty(validateValidations(data))
     const isValid = isEmpty(errors)
 
     return {
