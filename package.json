@@ -24,7 +24,7 @@
     "serializer",
     "decorator"
   ],
-  "author": "Kurtis Rainbolt-Greene (@krainboltgreene) <me@kurtisrainboltgreene.name>",
+  "author": "Kurtis Rainbolt-Greene (@krainboltgreene) <kurtis@rainbolt-greene.online>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/krainboltgreene/abstraction.js/issues"
