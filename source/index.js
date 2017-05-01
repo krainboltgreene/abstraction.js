@@ -1,4 +1,4 @@
-import {map} from "ramda"
+import mapValues from "@unction/mapvalues"
 import {isEmpty} from "ramda"
 import {reject} from "ramda"
 import {validates} from "validus"
@@ -10,8 +10,8 @@ export default function abstraction (configuration: ConfigurationType): Function
   const {validations = {}} = configuration
 
   return function abstractionConfiguration (rawAttributes: RawAttributesType): AbstractionInstanceType {
-    const data = map(asForgedAttribute(rawAttributes), attributes)
     const errors = reject(isEmpty, validates(validations)(data))
+    const data = mapValues(asForgedAttribute(rawAttributes))(attributes)
     const isValid = isEmpty(errors)
 
     return {
