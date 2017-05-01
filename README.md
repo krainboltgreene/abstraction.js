@@ -41,7 +41,7 @@ const accountResource = abstraction({
       coerce: accountAttributes,
     }
   }
-}
+})
 ```
 
 There's a lot happening here so lets break it down:
@@ -64,7 +64,7 @@ const accountResource = abstraction({
     id: {source: prop("id")},
     type: {source: prop("type")},
   }
-}
+})
 ```
 
 For these we're just defining a `source`. The `source` is a function that tells us how to get to our data for `id` and `type`. This is easy for us, so we'll just use `path()`. Now it's time to get a little more complicated with `attributes`.
@@ -79,7 +79,7 @@ const accountResource = abstraction({
       coerce: accountAttributes,
     },
   },
-}
+})
 ```
 
 So here we're not only sourcing from the raw data, but also using a fun little `coerce` function. This function should take the data from source and convert it to what you need. In this case we're doing something really cool in that we're actually coercing the data into another abstraction!
@@ -99,7 +99,7 @@ const accountAttributes = abstraction({
       coerce: moment,
     },
   },
-}
+})
 ```
 
 There's some interesting things going on here as well, specifically in `username`'s source and `createdAt`'s `coerce` function. Notice that there is no username on the raw data and is instead really a derived value. In addition, your final property name *doesn't have to be* the same as your raw property.
