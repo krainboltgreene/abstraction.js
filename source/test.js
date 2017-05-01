@@ -4,18 +4,16 @@ import {prop} from "ramda"
 import {propSatisfies} from "ramda"
 import {both} from "ramda"
 import {lt} from "ramda"
-import {type} from "ramda"
 import {pipe} from "ramda"
 import {split} from "ramda"
 import {head} from "ramda"
-import isPresent from "@unction/isPresent"
-import isPopulated from "@unction/isPopulated"
-import endsWith from "@unction/endsWith"
-import lacksText from "@unction/lacksText"
+import isType from "@unction/istype"
+import isPresent from "@unction/ispresent"
+import isPopulated from "@unction/ispopulated"
+import endsWith from "@unction/endswith"
+import lacksText from "@unction/lackstext"
 
 import abstraction from "./"
-
-const isType = (signature: string) => (value: any) => type(value) === signature
 
 const accountAttributes = abstraction({
   attributes: {
