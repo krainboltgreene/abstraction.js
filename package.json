@@ -59,6 +59,6 @@
   "dependencies": {
     "@unction/mapvalues": "1.0.2",
     "ramda": "0.23.0",
-    "validus": "1.0.1"
+    "validus": "1.1.0"
   }
 }
