@@ -31,11 +31,11 @@
   },
   "homepage": "https://github.com/krainboltgreene/abstraction.js#readme",
   "devDependencies": {
-    "@unction/endswith": "1.0.0",
-    "@unction/ispopulated": "2.0.0",
-    "@unction/ispresent": "1.0.0",
+    "@unction/endswith": "1.0.1",
+    "@unction/ispopulated": "2.0.1",
+    "@unction/ispresent": "1.1.0",
     "@unction/istype": "1.0.0",
-    "@unction/lackstext": "1.0.0",
+    "@unction/lackstext": "1.1.0",
     "babel-cli": "6.24.1",
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.3",
@@ -54,7 +54,7 @@
     "greenkeeper": "4.2.1",
     "npm-run-all": "4.0.2",
     "sinon": "2.2.0",
-    "tap": "10.3.2"
+    "tap": "10.3.3"
   },
   "dependencies": {
     "@unction/mapvalues": "1.0.2",
