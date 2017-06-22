@@ -54,7 +54,7 @@
     "greenkeeper": "4.2.1",
     "npm-run-all": "4.0.2",
     "sinon": "2.1.0",
-    "tap": "10.3.3"
+    "tap": "10.5.2"
   },
   "dependencies": {
     "@unction/mapvalues": "1.0.2",
