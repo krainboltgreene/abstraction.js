@@ -49,7 +49,7 @@
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-promise": "3.5.0",
     "flow": "0.2.3",
-    "flow-bin": "0.45.0",
+    "flow-bin": "0.51.0",
     "flow-typed": "2.1.2",
     "greenkeeper": "4.2.1",
     "npm-run-all": "4.0.2",
