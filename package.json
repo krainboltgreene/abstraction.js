@@ -34,7 +34,7 @@
     "@unction/endswith": "1.0.1",
     "@unction/ispopulated": "2.0.1",
     "@unction/ispresent": "1.1.0",
-    "@unction/istype": "1.0.0",
+    "@unction/istype": "1.0.5",
     "@unction/lackstext": "1.1.0",
     "babel-cli": "6.24.1",
     "babel-core": "6.24.1",
