@@ -37,7 +37,7 @@
     "@unction/istype": "1.0.0",
     "@unction/lackstext": "1.1.2",
     "babel-cli": "6.24.1",
-    "babel-core": "6.24.1",
+    "babel-core": "6.25.0",
     "babel-eslint": "7.2.3",
     "babel-plugin-transform-object-rest-spread": "6.23.0",
     "babel-preset-env": "1.4.0",
