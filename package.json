@@ -32,7 +32,7 @@
   "homepage": "https://github.com/krainboltgreene/abstraction.js#readme",
   "devDependencies": {
     "@unction/endswith": "1.0.1",
-    "@unction/ispopulated": "2.0.1",
+    "@unction/ispopulated": "2.0.3",
     "@unction/ispresent": "1.1.0",
     "@unction/istype": "1.0.0",
     "@unction/lackstext": "1.1.0",
