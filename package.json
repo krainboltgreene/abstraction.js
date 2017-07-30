@@ -35,7 +35,7 @@
     "@unction/ispopulated": "2.0.3",
     "@unction/ispresent": "1.1.2",
     "@unction/istype": "1.0.1",
-    "@unction/lackstext": "1.1.2",
+    "@unction/lackstext": "1.1.4",
     "babel-cli": "6.24.1",
     "babel-core": "6.25.0",
     "babel-eslint": "7.2.3",
