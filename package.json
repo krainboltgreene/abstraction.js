@@ -33,7 +33,7 @@
   "devDependencies": {
     "@unction/endswith": "1.0.3",
     "@unction/ispopulated": "2.0.5",
-    "@unction/ispresent": "1.1.2",
+    "@unction/ispresent": "1.1.4",
     "@unction/istype": "1.0.1",
     "@unction/lackstext": "1.1.4",
     "babel-cli": "6.24.1",
